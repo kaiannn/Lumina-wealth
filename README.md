@@ -26,6 +26,10 @@
   <img src="public/favicon.svg" alt="Lumina Wealth Logo" width="120" />
 </p>
 
+<p align="center">
+  <small>🌐 <a href="README_EN.md">English Version</a></small>
+</p>
+
 ## 📋 项目简介
 
 **Lumina Wealth** 是一个现代化的个人投资持仓可视化分析平台，旨在为个人投资者提供专业级的持仓管理、收益分析和投资行为洞察工具。
