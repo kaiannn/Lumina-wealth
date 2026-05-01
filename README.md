@@ -225,12 +225,12 @@ holdingsViz/
 
 如有问题或建议，请通过以下方式联系我们：
 - 提交 [GitHub Issue](https://github.com/yourusername/holdingsViz/issues)
-- 发送邮件至 [your-email@example.com](mailto:your-email@example.com)
+- 发送邮件至 [kaiannlee1@gmail.com](mailto:kaiannlee1@gmail.com)
 
 ---
 
 <p align="center">
-  Made with ❤️ by the Lumina Wealth Team
+  Made with ❤️ by the kai
 </p>
 
 <p align="center">
