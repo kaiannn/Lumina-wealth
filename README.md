@@ -1,5 +1,9 @@
 # Lumina Wealth - 个人投资持仓可视化分析平台
 
+> 🚀 **Live demo:** _coming soon — deploy with one click below_
+>
+> [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/kaiannn/Lumina-wealth)
+
 <p align="center">
   <img src="https://img.shields.io/badge/React-19.2.5-61DAFB?style=for-the-badge&logo=react" alt="React" />
   <img src="https://img.shields.io/badge/TypeScript-6.0.2-3178C6?style=for-the-badge&logo=typescript" alt="TypeScript" />
