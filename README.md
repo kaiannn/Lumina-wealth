@@ -1,6 +1,6 @@
 # Lumina Wealth - 个人投资持仓可视化分析平台
 
-> 🚀 **Live demo:** _coming soon — deploy with one click below_
+> 🚀 **Live demo:** **https://lumina-wealth.vercel.app**
 >
 > [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/kaiannn/Lumina-wealth)
 
