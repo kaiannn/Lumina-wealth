@@ -92,19 +92,6 @@ export function SmartVisualization({
     }
   }, [data, type, userPreferences.notifications]);
 
-  // 处理图表交互事件
-  const handleChartEvents = useMemo(() => {
-    return {
-      click: (params: any) => {
-        console.log('图表点击:', params);
-        // 可以在这里添加下钻分析等交互逻辑
-      },
-      datazoom: (params: any) => {
-        console.log('数据缩放:', params);
-      }
-    };
-  }, []);
-
   // 更新图表数据
   useEffect(() => {
     if (chartInstance) {

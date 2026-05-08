@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SmartVisualization from '../components/visualization/SmartVisualization';
-import type { VisualizationType, UserPreferences, VisualInsight } from '../components/visualization/SmartVisualization';
+import type { UserPreferences, VisualInsight } from '../components/visualization/SmartVisualization';
 import './VisualizationDemo.css';
 
 export default function VisualizationDemo() {

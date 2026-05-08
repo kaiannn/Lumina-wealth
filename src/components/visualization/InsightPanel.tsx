@@ -1,5 +1,3 @@
-import React from 'react';
-
 export interface VisualInsight {
   id: string;
   type: 'pattern' | 'anomaly' | 'opportunity' | 'risk';
