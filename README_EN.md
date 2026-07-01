@@ -12,7 +12,7 @@
 [![Tailwind](https://img.shields.io/badge/Tailwind_4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![ECharts](https://img.shields.io/badge/ECharts_6-AA344D?style=flat-square&logo=apacheecharts&logoColor=white)](https://echarts.apache.org/)
 
-[Live Demo](https://lumina-wealth.vercel.app) · [Local Dev](#quick-start)
+[Vercel](https://lumina-wealth.vercel.app) · [GitHub Pages](https://kaiannn.github.io/Lumina-wealth/) · [Local Dev](#quick-start)
 
 </div>
 

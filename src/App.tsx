@@ -10,7 +10,7 @@ const SettingsPage = lazy(() => import('@/pages/SettingsPage'))
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
       <Suspense>
         <Routes>
           <Route element={<AppLayout />}>
