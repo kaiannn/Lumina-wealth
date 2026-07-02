@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { v4 as uuidv4 } from 'uuid'
 import { Plus, X } from 'lucide-react'
 import type { Transaction, TransactionType, AssetType, Currency } from '@/types'
 
@@ -28,7 +27,7 @@ export default function TransactionForm({ onSubmit, onClose }: Props) {
     if (!form.symbol || !form.name || !form.price || !form.quantity) return
 
     const tx: Transaction = {
-      id: uuidv4(),
+      id: crypto.randomUUID(),
       assetType: form.assetType,
       symbol: form.symbol.toUpperCase(),
       name: form.name,

@@ -3,7 +3,7 @@ import type { Transaction, CelebrityHolding } from '@/types'
 export const DEMO_TRANSACTIONS = generateDemoTransactions()
 
 function generateId(): string {
-  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+  return crypto.randomUUID()
 }
 
 function randomDate(start: Date, end: Date): number {
