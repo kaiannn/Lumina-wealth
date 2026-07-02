@@ -11,17 +11,23 @@ export default function ComparePage() {
   const [selected, setSelected] = useState<CelebrityHolding | null>(null)
 
   useEffect(() => {
-    getAllCelebrityHoldings().then((data) => {
-      if (data.length === 0) {
-        Promise.all(DEMO_CELEBRITY_HOLDINGS.map((c) => saveCelebrityHolding(c))).then(() => {
-          setCelebrities(DEMO_CELEBRITY_HOLDINGS)
-          setSelected(DEMO_CELEBRITY_HOLDINGS[0])
-        })
-      } else {
-        setCelebrities(data)
-        setSelected(data[0])
-      }
-    })
+    let cancelled = false
+    getAllCelebrityHoldings()
+      .then((data) => {
+        if (cancelled) return
+        if (data.length === 0) {
+          Promise.all(DEMO_CELEBRITY_HOLDINGS.map((c) => saveCelebrityHolding(c))).then(() => {
+            if (cancelled) return
+            setCelebrities(DEMO_CELEBRITY_HOLDINGS)
+            setSelected(DEMO_CELEBRITY_HOLDINGS[0])
+          })
+        } else {
+          setCelebrities(data)
+          setSelected(data[0])
+        }
+      })
+      .catch(console.error)
+    return () => { cancelled = true }
   }, [])
 
   const myTotalValue = holdings.reduce((sum, h) => sum + h.marketValue, 0)

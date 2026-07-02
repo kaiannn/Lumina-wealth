@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import type { Transaction, Holding, PortfolioSummary } from '@/types'
 import { getAllTransactions, addTransaction, deleteTransaction, importTransactions, clearAllTransactions } from '@/db'
 import { calculateHoldings, calculatePortfolioSummary } from '@/utils/portfolio'
@@ -10,7 +10,6 @@ export function usePortfolio() {
   const [summary, setSummary] = useState<PortfolioSummary | null>(null)
   const [loading, setLoading] = useState(true)
   const [isDemo, setIsDemo] = useState(false)
-  const loadingRef = useRef(true)
 
   const refresh = useCallback(async () => {
     const txs = await getAllTransactions()
@@ -25,7 +24,6 @@ export function usePortfolio() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     refresh().finally(() => {
       if (!cancelled) {
-        loadingRef.current = false
         setLoading(false)
       }
     })

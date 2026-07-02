@@ -1,29 +1,12 @@
 import { ChevronRight } from 'lucide-react'
-import type { Holding, AssetType } from '@/types'
+import type { Holding } from '@/types'
 import { formatCurrency, formatPercent, getPnLColor } from '@/utils/portfolio'
+import { ASSET_TYPE_LABELS, ASSET_UNIT } from '@/constants'
 
 interface Props {
   holdings: Holding[]
   onSelect: (holding: Holding) => void
   selectedSymbol?: string
-}
-
-const ASSET_TYPE_LABELS: Record<string, string> = {
-  STOCK_CN: 'A股',
-  STOCK_US: '美股',
-  FUND: '基金',
-  CRYPTO: '加密',
-  BOND: '债券',
-  CASH: '现金',
-}
-
-const ASSET_UNIT: Record<AssetType, string> = {
-  STOCK_CN: '股',
-  STOCK_US: '股',
-  FUND: '份',
-  CRYPTO: '枚',
-  BOND: '张',
-  CASH: '',
 }
 
 export default function HoldingsList({ holdings, onSelect, selectedSymbol }: Props) {

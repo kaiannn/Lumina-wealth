@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Plus, Trash2, ArrowUpRight, ArrowDownRight, List, Clock, BarChart3, Play, TrendingUp } from 'lucide-react'
 import { usePortfolio } from '@/hooks/usePortfolio'
 import { formatCurrency, formatDateTime } from '@/utils/portfolio'
+import { ASSET_TYPE_LABELS } from '@/constants'
 import TransactionForm from '@/components/transactions/TransactionForm'
 import TransactionTimeline from '@/components/transactions/TransactionTimeline'
 import EnhancedTimeline from '@/components/transactions/EnhancedTimeline'
@@ -9,15 +10,6 @@ import TradeMarkChart from '@/components/charts/TradeMarkChart'
 import PortfolioPlayback from '@/components/charts/PortfolioPlayback'
 
 type ViewMode = 'table' | 'timeline' | 'enhanced' | 'chart' | 'playback'
-
-const ASSET_TYPE_LABELS: Record<string, string> = {
-  STOCK_CN: 'A股',
-  STOCK_US: '美股',
-  FUND: '基金',
-  CRYPTO: '加密',
-  BOND: '债券',
-  CASH: '现金',
-}
 
 const VIEW_OPTIONS: { value: ViewMode; label: string; icon: typeof List }[] = [
   { value: 'table', label: '表格', icon: List },
@@ -32,7 +24,7 @@ export default function TransactionsPage() {
   const [showForm, setShowForm] = useState(false)
   const [viewMode, setViewMode] = useState<ViewMode>('table')
 
-  const sorted = [...transactions].sort((a, b) => b.timestamp - a.timestamp)
+  const sorted = useMemo(() => [...transactions].sort((a, b) => b.timestamp - a.timestamp), [transactions])
 
   return (
     <div className="space-y-6">

@@ -46,26 +46,22 @@ src/
   utils/
     portfolio.ts    # Core calculations: holdings, PnL, analytics
     demoData.ts     # Random demo transaction generator
-    visualizationAdapter.ts  # ECharts config adapters (user level, theme, responsive)
   hooks/
     usePortfolio.ts # Central data hook — wraps DB + calculations
-  services/
-    InsightGenerator.ts
   pages/            # Route-level components (Dashboard, Transactions, Analysis, Compare, Settings)
   components/
     charts/         # ECharts wrapper components
     dashboard/      # Dashboard widgets
     layout/         # AppLayout (sidebar + outlet)
     transactions/   # Transaction forms/lists
-    visualization/  # Advanced visualization components
 ```
 
 ## Architecture notes
 
 - **Data flow**: IndexedDB → `usePortfolio` hook → `calculateHoldings`/`calculatePortfolioSummary` → components
-- **Cost basis**: FIFO method for realized PnL calculation (`utils/portfolio.ts`)
+- **Cost basis**: Moving weighted average method for holdings cost (`utils/portfolio.ts`)
 - **PnL colors follow Chinese market convention**: red = positive/gain, green = negative/loss (opposite of Western convention)
-- **No global state management** — React hooks + props drilling. The `stores/` directory exists but is empty.
+- **No global state management** — React hooks + props drilling.
 - **Demo data**: `loadDemo()` in `usePortfolio` clears all real data first
 
 ## UI conventions
