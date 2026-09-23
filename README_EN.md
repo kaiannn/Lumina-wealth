@@ -4,7 +4,7 @@
 
 <img src="public/favicon.svg" width="80" height="80" alt="Lumina Wealth Logo" />
 
-**Personal investment portfolio tracker & visualization**
+**Investment philosophy verification lab for advanced retail investors**
 
 [![React](https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -18,22 +18,27 @@
 
 ---
 
-## What it does
+## What it is
 
-A local-only portfolio tracker. Record trades, visualize holdings, analyze returns.
+Not another trade ledger.
 
-All data lives in the browser's IndexedDB. No backend, nothing leaves your device.
+Lumina Wealth puts your trades, position-building rhythm, and institutional (13F) holdings on one timeline, then uses explainable metrics to **test whether common investment ideas fit your account**.
+
+All data stays in browser IndexedDB — no backend, nothing uploaded.
+
+See also: [README (中文)](./README.md) · [LEARNING.md](./LEARNING.md)
 
 ## Features
 
-- **Portfolio overview** — Total assets, realized/unrealized P&L, holdings treemap
-- **Trade records** — Buy/sell management, FIFO cost basis auto-calculation
-- **Holdings analysis** — Cost basis chart, P&L breakdown, transaction playback timeline
-- **Comparison** — Compare with celebrity portfolios, overlap & style radar charts
-- **Import/Export** — JSON format, easy backup and migration
-- **Dark theme** — Default dark, responsive on desktop and mobile
+- **Overview** — Totals, realized/unrealized P&L, holdings treemap
+- **Trades** — Buy/sell records, cost-basis P&L
+- **CSV import** — Broker fills, field mapping, preview & dedupe
+- **Philosophy checks** — Concentration, turnover discipline vs your data
+- **Whale compare** — Real SEC 13F structure fingerprint, radar, overlap
+- **Import/Export** — JSON backup
+- **Dark UI**
 
-## Quick Start
+## Quick start
 
 ```bash
 git clone https://github.com/kaiannn/Lumina-wealth.git
@@ -44,33 +49,22 @@ npm run dev
 
 Open http://localhost:5173.
 
-> Demo data is built in. Load it from Settings to try things out.
-
-## Tech Stack
+## Tech stack
 
 - **React 19** + **TypeScript 6** + **Vite 8**
-- **Tailwind CSS 4** — Styling
-- **ECharts 6** — Charts (echarts-for-react)
-- **idb** — IndexedDB wrapper
-- **react-router-dom** — Routing
-- **dayjs** — Date handling
-- **lucide-react** — Icons
+- **Tailwind CSS 4** — styling
+- **ECharts 6** — charts
+- **idb** — IndexedDB
+- **react-router-dom** — routing
+- **lucide-react** / **uuid**
 
-## Project Structure
+## Structure
 
 ```
-src/
-├── pages/              # Dashboard, Transactions, Analysis, Compare, Settings
-├── components/
-│   ├── charts/         # ECharts chart components
-│   ├── dashboard/      # Dashboard widgets
-│   ├── layout/         # Layout (sidebar + route outlet)
-│   └── transactions/   # Transaction forms & lists
-├── db/                 # IndexedDB operations
-├── hooks/              # usePortfolio — core data hook
-├── types/              # TypeScript type definitions
-├── utils/              # Portfolio calculations, formatters, demo data
-└── services/           # Business services
+src/pages, components, db, hooks, types, utils
+assets/13f/   # raw SEC 13F provenance
+LEARNING.md   # study resources
+AGENTS.md     # engineering notes for agents
 ```
 
 ## License

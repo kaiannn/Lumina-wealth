@@ -1,0 +1,375 @@
+{
+  "berkshire": {
+    "name": "沃伦·巴菲特 / 伯克希尔",
+    "filerName": "BERKSHIRE HATHAWAY INC",
+    "quarters": [
+      "2026-06-30",
+      "2026-03-31",
+      "2025-12-31",
+      "2025-09-30"
+    ],
+    "nQuarters": 4,
+    "latest": {
+      "top1Weight": 16.85,
+      "top3Weight": 32.51,
+      "top5Weight": 46.14,
+      "hhi": 0.0641,
+      "effectiveHoldings": 15.61,
+      "entropyBits": 4.655,
+      "maxEntropyBits": 6.476,
+      "normalizedEntropy": 0.719
+    },
+    "latestTop": [
+      [
+        "AMERICAN EXPRESS CO",
+        16.8486,
+        "025816109"
+      ],
+      [
+        "ALPHABET INC",
+        7.8608,
+        "02079K305"
+      ],
+      [
+        "APPLE INC",
+        7.7998,
+        "037833100"
+      ],
+      [
+        "COCA COLA CO",
+        7.6781,
+        "191216100"
+      ],
+      [
+        "APPLE INC",
+        5.9508,
+        "037833100"
+      ],
+      [
+        "BANK OF AMER CORP",
+        5.8799,
+        "060505104"
+      ],
+      [
+        "OCCIDENTAL PETE CORP",
+        4.3001,
+        "674599105"
+      ],
+      [
+        "CHUBB LIMITED",
+        3.8997,
+        "H1467J104"
+      ]
+    ],
+    "fields": [
+      "symbol_guess",
+      "name",
+      "cusip",
+      "title",
+      "shares",
+      "value",
+      "putCall",
+      "type",
+      "portfolioPercent"
+    ],
+    "hasTicker": false,
+    "hasOptions": false,
+    "hasMultiQuarter": true,
+    "quarterDelta": {
+      "from": "2026-03-31",
+      "to": "2026-06-30",
+      "weightTurnoverPct": 6.13,
+      "nAdded": 1,
+      "nRemoved": 1,
+      "added": [
+        "D R HORTON INC"
+      ],
+      "removed": [
+        "CONSTELLATION BRANDS INC"
+      ]
+    }
+  },
+  "ark": {
+    "name": "凯西·伍德 / ARK",
+    "filerName": "ARK Investment Management LLC",
+    "quarters": [
+      "2026-06-30",
+      "2026-03-31",
+      "2025-12-31",
+      "2025-09-30"
+    ],
+    "nQuarters": 4,
+    "latest": {
+      "top1Weight": 7.54,
+      "top3Weight": 17.85,
+      "top5Weight": 25.03,
+      "hhi": 0.0253,
+      "effectiveHoldings": 39.5,
+      "entropyBits": 5.924,
+      "maxEntropyBits": 7.57,
+      "normalizedEntropy": 0.783
+    },
+    "latestTop": [
+      [
+        "Tesla Inc",
+        7.5365,
+        "88160R101"
+      ],
+      [
+        "Advanced Micro Devices Inc",
+        5.3423,
+        "007903107"
+      ],
+      [
+        "Space Exploration Technologies Corp",
+        4.9676,
+        "84615Q103"
+      ],
+      [
+        "Tempus AI Inc",
+        3.7697,
+        "88023B103"
+      ],
+      [
+        "Robinhood Markets Inc",
+        3.4091,
+        "770700102"
+      ],
+      [
+        "CRISPR Therapeutics AG",
+        3.3502,
+        "H17182108"
+      ],
+      [
+        "Shopify Inc",
+        3.0809,
+        "82509L107"
+      ],
+      [
+        "Twist Bioscience Corp",
+        3.0391,
+        "90184D100"
+      ]
+    ],
+    "fields": [
+      "symbol_guess",
+      "name",
+      "cusip",
+      "title",
+      "shares",
+      "value",
+      "putCall",
+      "type",
+      "portfolioPercent"
+    ],
+    "hasTicker": false,
+    "hasOptions": false,
+    "hasMultiQuarter": true,
+    "quarterDelta": {
+      "from": "2026-03-31",
+      "to": "2026-06-30",
+      "weightTurnoverPct": 16.51,
+      "nAdded": 16,
+      "nRemoved": 7,
+      "added": [
+        "X-Energy Inc",
+        "Alamar Biosciences Inc",
+        "Octave Intelligence PLC",
+        "Cerebras Systems Inc",
+        "State Street SPDR S&P Biotech ETF",
+        "State Street SPDR S&P Capital Markets ETF",
+        "Alphabet Inc",
+        "Honeywell Aerospace Inc"
+      ],
+      "removed": [
+        "Intercontinental Exchange Inc",
+        "Honeywell International Inc",
+        "Pinterest Inc",
+        "Salesforce Inc",
+        "Brera Holdings PLC",
+        "iShares Russell 1000 ETF",
+        "Palo Alto Networks Inc"
+      ]
+    }
+  },
+  "bridgewater": {
+    "name": "瑞·达利欧 / 桥水",
+    "filerName": "Bridgewater Associates, LP",
+    "quarters": [
+      "2026-06-30",
+      "2026-03-31",
+      "2025-12-31",
+      "2025-09-30"
+    ],
+    "nQuarters": 4,
+    "latest": {
+      "top1Weight": 16.3,
+      "top3Weight": 28.7,
+      "top5Weight": 32.72,
+      "hhi": 0.0397,
+      "effectiveHoldings": 25.2,
+      "entropyBits": 7.148,
+      "maxEntropyBits": 9.961,
+      "normalizedEntropy": 0.718
+    },
+    "latestTop": [
+      [
+        "STATE STR SPDR S&P 500 ETF T",
+        16.299,
+        "78462F103"
+      ],
+      [
+        "ISHARES TR",
+        9.2237,
+        "464287200"
+      ],
+      [
+        "NVIDIA CORPORATION",
+        3.1735,
+        "67066G104"
+      ],
+      [
+        "BROADCOM INC",
+        2.0424,
+        "11135F101"
+      ],
+      [
+        "AMAZON COM INC",
+        1.9804,
+        "023135106"
+      ],
+      [
+        "ALPHABET INC",
+        1.9384,
+        "02079K305"
+      ],
+      [
+        "LAM RESEARCH CORP",
+        1.6679,
+        "512807306"
+      ],
+      [
+        "VANGUARD INDEX FDS",
+        1.2915,
+        "922908363"
+      ]
+    ],
+    "fields": [
+      "symbol_guess",
+      "name",
+      "cusip",
+      "title",
+      "shares",
+      "value",
+      "putCall",
+      "type",
+      "portfolioPercent"
+    ],
+    "hasTicker": false,
+    "hasOptions": false,
+    "hasMultiQuarter": true,
+    "quarterDelta": {
+      "from": "2026-03-31",
+      "to": "2026-06-30",
+      "weightTurnoverPct": 25.89,
+      "nAdded": 214,
+      "nRemoved": 210,
+      "added": [
+        "AAON INC",
+        "AAR CORP",
+        "ACADIA HEALTHCARE COMPANY IN",
+        "ACI WORLDWIDE INC",
+        "ACUSHNET HLDGS CORP",
+        "AGILYSYS INC",
+        "ALLEGIANT TRAVEL CO",
+        "AMCOR PLC"
+      ],
+      "removed": [
+        "ADVANCE AUTO PARTS INC",
+        "AEHR TEST SYS",
+        "AES CORP",
+        "AFFILIATED MANAGERS GROUP",
+        "ALASKA AIR GROUP INC",
+        "ALCON AG",
+        "ALKERMES PLC",
+        "ALLEGION PLC"
+      ]
+    }
+  },
+  "scion": {
+    "name": "Michael Burry / Scion",
+    "filerName": "Scion Asset Management, LLC",
+    "quarters": [
+      "2025-09-30",
+      "2025-06-30",
+      "2025-03-31",
+      "2024-12-31"
+    ],
+    "nQuarters": 4,
+    "latest": {
+      "top1Weight": 35.11,
+      "top3Weight": 80.72,
+      "top5Weight": 100.0,
+      "hhi": 0.2666,
+      "effectiveHoldings": 3.75,
+      "entropyBits": 1.954,
+      "maxEntropyBits": 2.0,
+      "normalizedEntropy": 0.977
+    },
+    "latestTop": [
+      [
+        "MOLINA HEALTHCARE INC",
+        35.1052,
+        "60855R100"
+      ],
+      [
+        "LULULEMON ATHLETICA INC",
+        26.1132,
+        "550021109"
+      ],
+      [
+        "SLM CORP",
+        19.5014,
+        "78442P106"
+      ],
+      [
+        "BRUKER CORP",
+        19.2802,
+        "116794207"
+      ]
+    ],
+    "fields": [
+      "symbol_guess",
+      "name",
+      "cusip",
+      "title",
+      "shares",
+      "value",
+      "putCall",
+      "type",
+      "portfolioPercent"
+    ],
+    "hasTicker": false,
+    "hasOptions": false,
+    "hasMultiQuarter": true,
+    "quarterDelta": {
+      "from": "2025-06-30",
+      "to": "2025-09-30",
+      "weightTurnoverPct": 78.88,
+      "nAdded": 3,
+      "nRemoved": 5,
+      "added": [
+        "BRUKER CORP",
+        "MOLINA HEALTHCARE INC",
+        "SLM CORP"
+      ],
+      "removed": [
+        "BRUKER CORP",
+        "LAUDER ESTEE COS INC",
+        "MERCADOLIBRE INC",
+        "REGENERON PHARMACEUTICALS",
+        "UNITEDHEALTH GROUP INC"
+      ]
+    }
+  }
+}

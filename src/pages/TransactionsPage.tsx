@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { Plus, Trash2, ArrowUpRight, ArrowDownRight, List, Clock, BarChart3, Play, TrendingUp } from 'lucide-react'
+import { Plus, Trash2, ArrowUpRight, ArrowDownRight, List, Clock, BarChart3, Play, TrendingUp, Upload } from 'lucide-react'
 import { usePortfolio } from '@/hooks/usePortfolio'
 import { formatCurrency, formatDateTime } from '@/utils/portfolio'
 import TransactionForm from '@/components/transactions/TransactionForm'
+import CsvImportDialog from '@/components/transactions/CsvImportDialog'
 import TransactionTimeline from '@/components/transactions/TransactionTimeline'
 import EnhancedTimeline from '@/components/transactions/EnhancedTimeline'
 import TradeMarkChart from '@/components/charts/TradeMarkChart'
@@ -28,8 +29,9 @@ const VIEW_OPTIONS: { value: ViewMode; label: string; icon: typeof List }[] = [
 ]
 
 export default function TransactionsPage() {
-  const { transactions, add, remove } = usePortfolio()
+  const { transactions, add, remove, importFromJSON } = usePortfolio()
   const [showForm, setShowForm] = useState(false)
+  const [showCsv, setShowCsv] = useState(false)
   const [viewMode, setViewMode] = useState<ViewMode>('table')
 
   const sorted = [...transactions].sort((a, b) => b.timestamp - a.timestamp)
@@ -41,13 +43,22 @@ export default function TransactionsPage() {
           <h1 className="text-2xl font-bold text-white">交易记录</h1>
           <p className="text-sm text-gray-500 mt-1">共 {transactions.length} 笔交易</p>
         </div>
-        <button
-          onClick={() => setShowForm(true)}
-          className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-gray-900 bg-amber-500 hover:bg-amber-400 rounded-lg transition-colors"
-        >
-          <Plus className="w-3.5 h-3.5" />
-          添加交易
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setShowCsv(true)}
+            className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-gray-300 bg-gray-800/50 hover:bg-gray-800 border border-gray-700 rounded-lg transition-colors"
+          >
+            <Upload className="w-3.5 h-3.5" />
+            导入 CSV
+          </button>
+          <button
+            onClick={() => setShowForm(true)}
+            className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-gray-900 bg-amber-500 hover:bg-amber-400 rounded-lg transition-colors"
+          >
+            <Plus className="w-3.5 h-3.5" />
+            添加交易
+          </button>
+        </div>
       </div>
 
       {transactions.length > 0 && (
@@ -174,6 +185,16 @@ export default function TransactionsPage() {
             setShowForm(false)
           }}
           onClose={() => setShowForm(false)}
+        />
+      )}
+
+      {showCsv && (
+        <CsvImportDialog
+          existingTransactions={transactions}
+          onImport={async (txs) => {
+            await importFromJSON(txs)
+          }}
+          onClose={() => setShowCsv(false)}
         />
       )}
     </div>

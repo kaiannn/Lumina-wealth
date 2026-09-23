@@ -3,15 +3,17 @@ import {
   LayoutDashboard,
   ArrowRightLeft,
   BarChart3,
+  FlaskConical,
   Users,
   Settings,
-  Flame,
 } from 'lucide-react'
+import BrandLogo from '@/components/layout/BrandLogo'
 
 const NAV_ITEMS = [
   { to: '/', icon: LayoutDashboard, label: '总览' },
   { to: '/transactions', icon: ArrowRightLeft, label: '交易记录' },
   { to: '/analysis', icon: BarChart3, label: '持仓分析' },
+  { to: '/ideas', icon: FlaskConical, label: '理念验证' },
   { to: '/compare', icon: Users, label: '大牛对比' },
   { to: '/settings', icon: Settings, label: '设置' },
 ]
@@ -19,11 +21,11 @@ const NAV_ITEMS = [
 export default function Sidebar() {
   return (
     <aside className="fixed left-0 top-0 h-screen w-60 bg-gray-900/80 backdrop-blur-xl border-r border-gray-800 flex flex-col z-50">
-      <div className="flex items-center gap-2 px-5 py-5 border-b border-gray-800">
-        <Flame className="w-7 h-7 text-amber-400" />
-        <div>
-          <h1 className="text-lg font-bold text-white tracking-tight">Lumina Wealth</h1>
-          <p className="text-[10px] text-gray-500 tracking-widest">萤火财富</p>
+      <div className="flex items-center gap-2.5 px-5 py-5 border-b border-gray-800">
+        <BrandLogo className="w-8 h-8 shrink-0 rounded-[10px]" />
+        <div className="min-w-0">
+          <h1 className="text-lg font-bold text-white tracking-tight leading-tight">Lumina Wealth</h1>
+          <p className="text-[10px] text-gray-500 tracking-widest">萤火财富 · 理念验证</p>
         </div>
       </div>
 

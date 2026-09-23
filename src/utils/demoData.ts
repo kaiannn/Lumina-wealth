@@ -1,4 +1,5 @@
 import type { Transaction, CelebrityHolding } from '@/types'
+import { REAL_CELEBRITY_HOLDINGS } from '@/utils/celebrityData'
 
 export const DEMO_TRANSACTIONS = generateDemoTransactions()
 
@@ -295,77 +296,5 @@ export function getDemoSummary() {
   }
 }
 
-export const DEMO_CELEBRITY_HOLDINGS: CelebrityHolding[] = [
-  {
-    id: 'warren-buffett-2024q1',
-    name: '沃伦·巴菲特',
-    source: '伯克希尔哈撒韦 13F',
-    reportDate: '2024-03-31',
-    holdings: [
-      { symbol: 'AAPL', name: '苹果公司', shares: 905560000, value: 156000000000, portfolioPercent: 40.2, changePercent: -1.2 },
-      { symbol: 'BAC', name: '美国银行', shares: 1025000000, value: 34000000000, portfolioPercent: 8.8, changePercent: 0 },
-      { symbol: 'AXP', name: '美国运通', shares: 151610000, value: 28000000000, portfolioPercent: 7.2, changePercent: 0 },
-      { symbol: 'KO', name: '可口可乐', shares: 400000000, value: 24000000000, portfolioPercent: 6.2, changePercent: 0 },
-      { symbol: 'CVX', name: '雪佛龙', shares: 126093119, value: 19000000000, portfolioPercent: 4.9, changePercent: -0.3 },
-      { symbol: 'OXY', name: '西方石油', shares: 243724146, value: 14000000000, portfolioPercent: 3.6, changePercent: 0.5 },
-      { symbol: 'KHC', name: '卡夫亨氏', shares: 325634818, value: 11000000000, portfolioPercent: 2.8, changePercent: 0 },
-      { symbol: 'MCO', name: '穆迪', shares: 24669778, value: 9000000000, portfolioPercent: 2.3, changePercent: 0 },
-      { symbol: 'V', name: 'Visa', shares: 8280000, value: 2000000000, portfolioPercent: 0.5, changePercent: 0 },
-      { symbol: 'MA', name: '万事达卡', shares: 396466, value: 150000000, portfolioPercent: 0.04, changePercent: 0 },
-    ],
-  },
-  {
-    id: 'cathie-wood-2024q1',
-    name: '凯西·伍德',
-    source: 'ARK Invest 13F',
-    reportDate: '2024-03-31',
-    holdings: [
-      { symbol: 'TSLA', name: '特斯拉', shares: 8500000, value: 1500000000, portfolioPercent: 9.8, changePercent: -2.1 },
-      { symbol: 'COIN', name: 'Coinbase', shares: 11000000, value: 1200000000, portfolioPercent: 7.8, changePercent: 3.2 },
-      { symbol: 'ROKU', name: 'Roku', shares: 15000000, value: 900000000, portfolioPercent: 5.9, changePercent: -1.5 },
-      { symbol: 'SQ', name: 'Block', shares: 12000000, value: 800000000, portfolioPercent: 5.2, changePercent: 0.8 },
-      { symbol: 'ZM', name: 'Zoom', shares: 8000000, value: 500000000, portfolioPercent: 3.3, changePercent: -0.7 },
-      { symbol: 'TDOC', name: 'Teladoc', shares: 10000000, value: 400000000, portfolioPercent: 2.6, changePercent: 0 },
-      { symbol: 'U', name: 'Unity', shares: 6000000, value: 300000000, portfolioPercent: 2.0, changePercent: -0.5 },
-      { symbol: 'HOOD', name: 'Robinhood', shares: 15000000, value: 250000000, portfolioPercent: 1.6, changePercent: 1.2 },
-      { symbol: 'PATH', name: 'UiPath', shares: 5000000, value: 200000000, portfolioPercent: 1.3, changePercent: 0.3 },
-      { symbol: 'TWLO', name: 'Twilio', shares: 3000000, value: 150000000, portfolioPercent: 1.0, changePercent: -0.2 },
-    ],
-  },
-  {
-    id: 'ray-dalio-2024q1',
-    name: '瑞·达利欧',
-    source: '桥水基金 13F',
-    reportDate: '2024-03-31',
-    holdings: [
-      { symbol: 'SPY', name: '标普500 ETF', shares: 2500000, value: 1200000000, portfolioPercent: 12.5, changePercent: 0.5 },
-      { symbol: 'VTI', name: '全市场 ETF', shares: 1800000, value: 450000000, portfolioPercent: 4.7, changePercent: 0.2 },
-      { symbol: 'QQQ', name: '纳斯达克 ETF', shares: 800000, value: 350000000, portfolioPercent: 3.6, changePercent: 1.1 },
-      { symbol: 'GLD', name: '黄金 ETF', shares: 1200000, value: 220000000, portfolioPercent: 2.3, changePercent: 0.8 },
-      { symbol: 'TLT', name: '长期国债 ETF', shares: 1000000, value: 90000000, portfolioPercent: 0.9, changePercent: -0.3 },
-      { symbol: 'IWM', name: '小盘股 ETF', shares: 600000, value: 120000000, portfolioPercent: 1.3, changePercent: 0.1 },
-      { symbol: 'EEM', name: '新兴市场 ETF', shares: 1500000, value: 60000000, portfolioPercent: 0.6, changePercent: -0.2 },
-      { symbol: 'VNQ', name: '房地产 ETF', shares: 500000, value: 40000000, portfolioPercent: 0.4, changePercent: 0 },
-      { symbol: 'DBC', name: '商品 ETF', shares: 1000000, value: 20000000, portfolioPercent: 0.2, changePercent: 0.1 },
-      { symbol: 'BND', name: '债券 ETF', shares: 300000, value: 25000000, portfolioPercent: 0.3, changePercent: 0 },
-    ],
-  },
-  {
-    id: 'duan-yongping-2024q1',
-    name: '段永平',
-    source: '公开持仓',
-    reportDate: '2024-03-31',
-    holdings: [
-      { symbol: 'AAPL', name: '苹果公司', shares: 5000000, value: 850000000, portfolioPercent: 65.0, changePercent: 0 },
-      { symbol: 'BRK.B', name: '伯克希尔B股', shares: 2000000, value: 350000000, portfolioPercent: 26.8, changePercent: 0 },
-      { symbol: 'GOOGL', name: '谷歌', shares: 500000, value: 70000000, portfolioPercent: 5.4, changePercent: 0 },
-      { symbol: 'TSM', name: '台积电', shares: 300000, value: 42000000, portfolioPercent: 3.2, changePercent: 0 },
-      { symbol: 'META', name: 'Meta', shares: 100000, value: 48000000, portfolioPercent: 3.7, changePercent: 0 },
-      { symbol: 'PDD', name: '拼多多', shares: 200000, value: 30000000, portfolioPercent: 2.3, changePercent: 0 },
-      { symbol: 'NIO', name: '蔚来', shares: 500000, value: 4000000, portfolioPercent: 0.3, changePercent: 0 },
-      { symbol: 'BABA', name: '阿里巴巴', shares: 100000, value: 7500000, portfolioPercent: 0.6, changePercent: 0 },
-      { symbol: 'JD', name: '京东', shares: 50000, value: 1500000, portfolioPercent: 0.1, changePercent: 0 },
-      { symbol: 'TCEHY', name: '腾讯', shares: 20000, value: 600000, portfolioPercent: 0.05, changePercent: 0 },
-    ],
-  },
-]
+/** @deprecated Use REAL_CELEBRITY_HOLDINGS from celebrityData (SEC 13F). */
+export const DEMO_CELEBRITY_HOLDINGS: CelebrityHolding[] = REAL_CELEBRITY_HOLDINGS

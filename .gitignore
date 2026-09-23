@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .trae/
+.vercel
+
+# Local scratch (screenshots, temp previews)
+output/
+*.tsbuildinfo

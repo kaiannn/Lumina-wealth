@@ -2,7 +2,8 @@
 
 ## Project overview
 
-Lumina Wealth — a client-side personal investment portfolio visualization tool. All data lives in IndexedDB (no backend). Deployed to Vercel.
+Lumina Wealth — client-side **investment philosophy verification lab** for advanced retail investors.
+Personal trades + public 13F holdings → explainable metrics and comparisons. All data in IndexedDB (no backend). Deployed to Vercel.
 
 ## Tech stack
 
@@ -12,17 +13,18 @@ Lumina Wealth — a client-side personal investment portfolio visualization tool
 - React Router 7 for client-side routing
 - `idb` library for IndexedDB
 - Lucide React for icons
+- `uuid` for transaction ids
 
 ## Commands
 
 ```bash
-npm run dev        # Start dev server (localhost:5173)
+npm run dev        # Start dev server
 npm run build      # Typecheck (tsc -b) then vite build
-npm run lint       # ESLint on **/*.{ts,tsx}
+npm run lint       # ESLint
 npm run preview    # Preview production build
 ```
 
-No test framework is configured. No Prettier.
+No test framework. No Prettier.
 
 ## Path aliases
 
@@ -32,51 +34,54 @@ No test framework is configured. No Prettier.
 
 - `verbatimModuleSyntax: true` — use `import type` for type-only imports
 - `erasableSyntaxOnly: true` — no `enum`, no `namespace`, no parameter properties
-- `noUnusedLocals: true` and `noUnusedParameters: true` — unused vars will fail typecheck
+- `noUnusedLocals: true` and `noUnusedParameters: true` — unused vars fail typecheck
 
 ## Project structure
 
 ```
 src/
-  main.tsx          # Entry point
-  App.tsx           # Router setup (5 routes)
-  index.css         # Tailwind import + dark theme base styles
-  db/index.ts       # IndexedDB via idb — all persistence lives here
-  types/index.ts    # All TypeScript interfaces (Transaction, Holding, etc.)
+  main.tsx                 # Entry
+  App.tsx                  # Router (Dashboard, Transactions, Analysis, Ideas, Compare, Settings)
+  index.css                # Tailwind + dark theme
+  db/index.ts              # IndexedDB (transactions, celebrities)
+  types/index.ts           # Shared types
+  hooks/usePortfolio.ts    # DB + holdings/summary calculations
   utils/
-    portfolio.ts    # Core calculations: holdings, PnL, analytics
-    demoData.ts     # Random demo transaction generator
-    visualizationAdapter.ts  # ECharts config adapters (user level, theme, responsive)
-  hooks/
-    usePortfolio.ts # Central data hook — wraps DB + calculations
-  services/
-    InsightGenerator.ts
-  pages/            # Route-level components (Dashboard, Transactions, Analysis, Compare, Settings)
+    portfolio.ts           # Holdings, PnL, analytics, formatters
+    demoData.ts            # Demo transactions; re-exports real celebrity data
+    celebrityData.ts       # Bundled real SEC 13F holdings
+    csvImport.ts           # Broker CSV parse / map / dedupe
+    ideas.ts               # Philosophy checks (concentration, turnover)
+  pages/                   # Route pages
   components/
-    charts/         # ECharts wrapper components
-    dashboard/      # Dashboard widgets
-    layout/         # AppLayout (sidebar + outlet)
-    transactions/   # Transaction forms/lists
-    visualization/  # Advanced visualization components
+    layout/                # AppLayout, Sidebar, BrandLogo
+    charts/                # ECharts wrappers
+    dashboard/             # Summary + holdings list
+    transactions/          # Form, timelines, CSV dialog
+assets/13f/                # Raw SEC 13F XML + summary JSON (provenance)
+LEARNING.md                # Learning resources
+README.md                  # Product positioning
 ```
 
 ## Architecture notes
 
-- **Data flow**: IndexedDB → `usePortfolio` hook → `calculateHoldings`/`calculatePortfolioSummary` → components
-- **Cost basis**: FIFO method for realized PnL calculation (`utils/portfolio.ts`)
-- **PnL colors follow Chinese market convention**: red = positive/gain, green = negative/loss (opposite of Western convention)
-- **No global state management** — React hooks + props drilling. The `stores/` directory exists but is empty.
-- **Demo data**: `loadDemo()` in `usePortfolio` clears all real data first
+- **Data flow**: IndexedDB → `usePortfolio` → `calculateHoldings` / `calculatePortfolioSummary` → pages
+- **Cost basis**: Moving average in `utils/portfolio.ts` (README may still say FIFO in places — trust code)
+- **PnL colors**: Chinese convention — red = gain, green = loss
+- **No global store** — hooks + props only
+- **Celebrity data**: Prefer `REAL_CELEBRITY_HOLDINGS` from `utils/celebrityData.ts` (SEC 13F); Compare page refreshes IndexedDB cache from it
+- **Demo data**: `loadDemo()` clears real transactions first
 
 ## UI conventions
 
-- Dark theme only (`html { color-scheme: dark }`, body classes: `bg-gray-950 text-gray-100`)
-- Chinese-language UI (labels, tooltips, README)
-- Currency formatting uses 万/亿 suffixes for large numbers (`formatCurrency` in `utils/portfolio.ts`)
-- Supports CNY, USD, HKD currencies
+- Dark theme only
+- Chinese UI labels
+- Currency: 万/亿 suffixes via `formatCurrency`
+- CNY / USD / HKD
 
 ## Build & deploy
 
-- Vercel deployment with SPA rewrites (`vercel.json`)
+- Vercel SPA rewrites (`vercel.json`)
+- GitHub Pages workflow (`.github/workflows/pages.yml`)
 - Build output: `dist/`
-- No environment variables needed (all client-side)
+- No env vars (all client-side)

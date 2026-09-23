@@ -126,7 +126,8 @@ export default function SettingsPage() {
           <div>
             <h3 className="text-sm font-medium text-gray-300 mb-1">关于 Lumina Wealth</h3>
             <p className="text-xs text-gray-500 leading-relaxed">
-              萤火财富是一个极细粒度的个人资产"显微镜"与 AI 驱动的"投资镜像仪"。
+              面向进阶个人投资者的理念验证实验室：记录交易，对照大牛持仓，
+              用可解释指标检验集中度、换手等投资理念是否适用于你的账户。
               所有数据完全保存在你的浏览器本地，隐私优先。
             </p>
             <p className="text-xs text-gray-600 mt-2">v0.1.0 · MIT License</p>

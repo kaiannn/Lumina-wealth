@@ -5,6 +5,7 @@ import AppLayout from '@/components/layout/AppLayout'
 const DashboardPage = lazy(() => import('@/pages/DashboardPage'))
 const TransactionsPage = lazy(() => import('@/pages/TransactionsPage'))
 const AnalysisPage = lazy(() => import('@/pages/AnalysisPage'))
+const IdeasPage = lazy(() => import('@/pages/IdeasPage'))
 const ComparePage = lazy(() => import('@/pages/ComparePage'))
 const SettingsPage = lazy(() => import('@/pages/SettingsPage'))
 
@@ -17,6 +18,7 @@ export default function App() {
             <Route path="/" element={<DashboardPage />} />
             <Route path="/transactions" element={<TransactionsPage />} />
             <Route path="/analysis" element={<AnalysisPage />} />
+            <Route path="/ideas" element={<IdeasPage />} />
             <Route path="/compare" element={<ComparePage />} />
             <Route path="/settings" element={<SettingsPage />} />
           </Route>

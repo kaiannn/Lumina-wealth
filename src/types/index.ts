@@ -65,6 +65,13 @@ export interface CelebrityHolding {
   source: string
   reportDate: string
   holdings: CelebrityPosition[]
+  /** SEC CIK when sourced from EDGAR 13F */
+  cik?: string
+  sourceUrl?: string
+  metrics?: CelebrityPortfolioMetrics
+  quarterDelta?: CelebrityQuarterDelta
+  /** Total long line items in the filing (holdings may be truncated to top N) */
+  fullPositionCount?: number
 }
 
 export interface CelebrityPosition {
@@ -74,6 +81,29 @@ export interface CelebrityPosition {
   value: number
   portfolioPercent: number
   changePercent?: number
+  /** SEC CUSIP (13F identifier; symbol is best-effort mapped) */
+  cusip?: string
+}
+
+export interface CelebrityPortfolioMetrics {
+  top1Weight: number
+  top3Weight: number
+  top5Weight: number
+  hhi: number
+  effectiveHoldings: number
+  entropyBits: number
+  maxEntropyBits: number
+  normalizedEntropy: number
+}
+
+export interface CelebrityQuarterDelta {
+  from: string
+  to: string
+  weightTurnoverPct: number
+  nAdded: number
+  nRemoved: number
+  added: string[]
+  removed: string[]
 }
 
 export interface PortfolioAnalytics {

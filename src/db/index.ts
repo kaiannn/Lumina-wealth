@@ -92,3 +92,8 @@ export async function getAllCelebrityHoldings(): Promise<CelebrityHolding[]> {
   const db = await getDB()
   return db.getAll('celebrities')
 }
+
+export async function clearAllCelebrityHoldings(): Promise<void> {
+  const db = await getDB()
+  await db.clear('celebrities')
+}
