@@ -13,29 +13,33 @@ export default function ComparePage() {
   useEffect(() => {
     let cancelled = false
     ;(async () => {
-      const bundled = REAL_CELEBRITY_HOLDINGS
-      const stored = await getAllCelebrityHoldings()
-      const storedIds = new Set(stored.map((c) => c.id))
-      const bundledIds = new Set(bundled.map((c) => c.id))
-      const needsRefresh =
-        stored.length === 0 ||
-        [...bundledIds].some((id) => !storedIds.has(id)) ||
-        stored.every((c) => !c.source.includes('13F') || c.reportDate < '2025-01-01')
+      try {
+        const bundled = REAL_CELEBRITY_HOLDINGS
+        const stored = await getAllCelebrityHoldings()
+        const storedIds = new Set(stored.map((c) => c.id))
+        const bundledIds = new Set(bundled.map((c) => c.id))
+        const needsRefresh =
+          stored.length === 0 ||
+          [...bundledIds].some((id) => !storedIds.has(id)) ||
+          stored.every((c) => !c.source.includes('13F') || c.reportDate < '2025-01-01')
 
-      if (needsRefresh) {
-        await clearAllCelebrityHoldings()
-        await Promise.all(bundled.map((c) => saveCelebrityHolding(c)))
-        if (cancelled) return
-        setCelebrities(bundled)
-        setSelected(bundled[0] ?? null)
-        return
-      }
+        if (needsRefresh) {
+          await clearAllCelebrityHoldings()
+          await Promise.all(bundled.map((c) => saveCelebrityHolding(c)))
+          if (cancelled) return
+          setCelebrities(bundled)
+          setSelected(bundled[0] ?? null)
+          return
+        }
 
-      // Prefer bundled real 13F when ids match (keeps app in sync with code updates)
-      const merged = bundled.length > 0 ? bundled : stored
-      if (!cancelled) {
-        setCelebrities(merged)
-        setSelected(merged[0] ?? null)
+        // Prefer bundled real 13F when ids match (keeps app in sync with code updates)
+        const merged = bundled.length > 0 ? bundled : stored
+        if (!cancelled) {
+          setCelebrities(merged)
+          setSelected(merged[0] ?? null)
+        }
+      } catch (err) {
+        console.error(err)
       }
     })()
     return () => {

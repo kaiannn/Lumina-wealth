@@ -1,17 +1,9 @@
 import ReactECharts from 'echarts-for-react'
-import type { Holding, AssetType, Currency } from '@/types'
+import type { Holding, Currency } from '@/types'
+import { ASSET_UNIT } from '@/constants'
 
 interface Props {
   holdings: Holding[]
-}
-
-const ASSET_UNIT: Record<AssetType, string> = {
-  STOCK_CN: '股',
-  STOCK_US: '股',
-  FUND: '份',
-  CRYPTO: '枚',
-  BOND: '张',
-  CASH: '',
 }
 
 const CURRENCY_SYMBOL: Record<Currency, string> = {

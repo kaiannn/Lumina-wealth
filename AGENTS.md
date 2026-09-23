@@ -13,7 +13,8 @@ Personal trades + public 13F holdings → explainable metrics and comparisons. A
 - React Router 7 for client-side routing
 - `idb` library for IndexedDB
 - Lucide React for icons
-- `uuid` for transaction ids
+- `crypto.randomUUID()` for ids (no `uuid` package)
+- `tslib` for echarts-for-react interop
 
 ## Commands
 
@@ -41,8 +42,9 @@ No test framework. No Prettier.
 ```
 src/
   main.tsx                 # Entry
-  App.tsx                  # Router (Dashboard, Transactions, Analysis, Ideas, Compare, Settings)
+  App.tsx                  # Router (Dashboard, Transactions, Analysis, Ideas, Compare, Settings, 404)
   index.css                # Tailwind + dark theme
+  constants.ts             # Shared UI constants (asset labels/units)
   db/index.ts              # IndexedDB (transactions, celebrities)
   types/index.ts           # Shared types
   hooks/usePortfolio.ts    # DB + holdings/summary calculations
@@ -52,9 +54,9 @@ src/
     celebrityData.ts       # Bundled real SEC 13F holdings
     csvImport.ts           # Broker CSV parse / map / dedupe
     ideas.ts               # Philosophy checks (concentration, turnover)
-  pages/                   # Route pages
+  pages/                   # Route pages (+ NotFoundPage)
   components/
-    layout/                # AppLayout, Sidebar, BrandLogo
+    layout/                # AppLayout, Sidebar, BrandLogo, LoadingSpinner
     charts/                # ECharts wrappers
     dashboard/             # Summary + holdings list
     transactions/          # Form, timelines, CSV dialog
@@ -66,7 +68,7 @@ README.md                  # Product positioning
 ## Architecture notes
 
 - **Data flow**: IndexedDB → `usePortfolio` → `calculateHoldings` / `calculatePortfolioSummary` → pages
-- **Cost basis**: Moving average in `utils/portfolio.ts` (README may still say FIFO in places — trust code)
+- **Cost basis**: Moving weighted average in `utils/portfolio.ts`
 - **PnL colors**: Chinese convention — red = gain, green = loss
 - **No global store** — hooks + props only
 - **Celebrity data**: Prefer `REAL_CELEBRITY_HOLDINGS` from `utils/celebrityData.ts` (SEC 13F); Compare page refreshes IndexedDB cache from it

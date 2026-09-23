@@ -31,7 +31,11 @@ export default function DashboardPage() {
         </div>
         <div className="flex items-center gap-2">
           <button
-            onClick={loadDemo}
+            onClick={() => {
+              if (window.confirm('加载演示数据将清除所有现有数据，确定继续吗？')) {
+                loadDemo()
+              }
+            }}
             className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-gray-400 bg-gray-800/50 hover:bg-gray-800 border border-gray-700 rounded-lg transition-colors"
           >
             <Database className="w-3.5 h-3.5" />
@@ -97,7 +101,11 @@ export default function DashboardPage() {
           </p>
           <div className="flex items-center justify-center gap-3">
             <button
-              onClick={loadDemo}
+              onClick={() => {
+                if (window.confirm('加载演示数据将清除所有现有数据，确定继续吗？')) {
+                  loadDemo()
+                }
+              }}
               className="px-5 py-2.5 text-sm font-medium text-amber-400 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 rounded-lg transition-colors"
             >
               加载演示数据

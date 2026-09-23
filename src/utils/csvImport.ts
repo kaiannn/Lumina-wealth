@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
 import type { Transaction, TransactionType, AssetType, Currency } from '@/types'
 
 export type CsvField =
@@ -275,7 +274,7 @@ export function mapRows(
     seen.add(dedupKey)
 
     const tx: Transaction = {
-      id: uuidv4(),
+      id: crypto.randomUUID(),
       assetType,
       symbol: symbol.toUpperCase(),
       name,
